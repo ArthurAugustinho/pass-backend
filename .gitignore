@@ -25,3 +25,8 @@ docker-compose.override.yml
 # Arquivos temporários de sistema operacional
 *.swp
 *~
+
+# .gitignore
+docker-compose.yml
+*.log
+*.env
