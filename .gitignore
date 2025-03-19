@@ -1,47 +1,27 @@
-# Diretórios de build e dependências
-/target/                     # Diretório de saída do Maven
-/.mvn/                       # Arquivos de configuração do Maven
-/.idea/                      # Configuração do IntelliJ IDEA
-/.vscode/                    # Configuração do Visual Studio Code
-*.iml                        # Arquivos de configuração de projeto do IntelliJ
+# IDEs
+.vscode/
+.idea/
 
-# Arquivos de Docker
-.docker/
+# Diretórios de compilação
+/target/
+/bin/
+/out/
 
-# Arquivos de logs
+# Arquivos do Maven
 *.log
+*.class
+*.jar
+*.war
+*.ear
 
-# Arquivos temporários de edição
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração do Docker
+docker-compose.override.yml
+*.env
+
+# Arquivos temporários de sistema operacional
 *.swp
-*.swo
-
-# Arquivos de configuração sensíveis
-.env                         # Variáveis de ambiente com informações sensíveis
-application.properties       # Evite enviar a configuração sensível do Spring
-*.key                        # Chaves privadas de API
-*.pem                        # Certificados e chaves privadas
-
-# Banco de dados
-*.sql                        # Scripts de banco de dados gerados
-*.db                         # Arquivos de banco de dados locais (ex: SQLite)
-
-# Dependências do Node.js (caso utilize para front-end)
-node_modules/                # Módulos do Node.js
-
-# Arquivos gerados por build tools
-/target/                     # Diretórios de compilação
-*.war                        # Arquivos de WAR (para aplicações web)
-*.jar                        # Arquivos de JAR
-
-# Arquivos temporários do sistema operacional
-.DS_Store                    # Arquivo de cache do macOS
-Thumbs.db                    # Arquivo de cache do Windows
-*.bak                        # Arquivos de backup
-*.tmp                        # Arquivos temporários
-
-# Arquivos de testes
-/target/test-classes/         # Diretórios de classes de teste
-/target/generated-sources/    # Fontes geradas para compilação
-
-# Arquivos de banco de dados temporários
-*.h2.db                      # Arquivos do H2 (caso utilize para persistência local)
+*~
