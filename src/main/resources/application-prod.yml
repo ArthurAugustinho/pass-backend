@@ -1,0 +1,10 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  security:
+    user:
+      password: ${ADMIN_PASSWORD}  # Obrigatório
+
+jwt:
+  secret: ${JWT_SECRET}  # Obrigatório

@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: auth-service
+
+  main:
+    allow-bean-definition-overriding: true
+    web-application-type: reactive  # Adicionado para definir o modo reativo
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pass_db
+    username: pass
+    password: pass123
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      minimum-idle: 5
+
+  server:
+    port: 8081
+    servlet:
+      context-path: /api/auth  # Prefixo mais claro para APIs
+    compression:
+      enabled: true
+      mime-types: application/json,application/xml,text/html,text/plain,text/xml
+
+  jpa:
+    hibernate:
+      ddl-auto: validate  # Mais seguro que 'update' em ambientes de staging
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  security:
+    user:
+      name: admin
+      password: ${ADMIN_PASSWORD:admin123}
+
+jwt:
+  secret: ${JWT_SECRET:}  # Exige explicitamente a variável de ambiente
+  expiration: ${JWT_EXPIRATION_MS:86400000}  # 24h
+  issuer: ${JWT_ISSUER:PASS-Auth-Service}
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: WARN  # DEBUG só para desenvolvimento
+    com.pass: DEBUG
